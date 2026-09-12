@@ -1,2 +1,5 @@
 [tool.mypy]
 mypy_path = "typings"
+
+[tool.ruff]
+line-length = 79

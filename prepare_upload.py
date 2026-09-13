@@ -69,7 +69,19 @@ def update_input(path, buf):
 def hook_filechooser_process(path, buf):
     data = json.dumps([buf, path])
     weechat.hook_process(
-        shlex.join(["kitty", "yazi", "--chooser-file", path]),
+        shlex.join(
+            [
+                "zellij",
+                "run",
+                "-c",
+                "-f",
+                "--blocking",
+                "--",
+                "yazi",
+                "--chooser-file",
+                path,
+            ]
+        ),
         0,
         "filechooser_process_cb",
         data,

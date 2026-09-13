@@ -1,5 +1,9 @@
 [tool.mypy]
 mypy_path = "typings"
 
+[tool.basedpyright]
+reportMissingModuleSource = "none"
+typeCheckingMode = "standard" 
+
 [tool.ruff]
 line-length = 79

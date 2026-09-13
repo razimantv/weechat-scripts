@@ -43,7 +43,13 @@ def cleanup(path, buf):
 def update_input(path, buf):
     try:
         with open(path) as f:
-            text = f"{upload_command}\n" + f.read().strip()
+            text = f.read().strip()
+
+        # If text is empty, don't do anything
+        if not text.strip():
+            return
+
+        text = f"{upload_command}\n" + text
 
         previous_input = weechat.buffer_get_string(buf, "input")
         if previous_input.startswith(upload_command):
